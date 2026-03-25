@@ -217,7 +217,6 @@ body::after{
 }
 
 .seal-left{
-  /* верх */
   clip-path: polygon(
     0 0,
     100% 0,
@@ -234,7 +233,6 @@ body::after{
 }
 
 .seal-right{
-  /* низ — те же точки, но снизу */
   clip-path: polygon(
     0 50%,
     10% 49%,
@@ -401,6 +399,16 @@ body::after{
   font-size:19px;
   line-height:1.7;
   color:var(--ink);
+}
+
+.salutation{
+  margin:0 0 6px;
+  font-family:'Bodoni Moda', serif;
+  font-style:italic;
+  font-weight:600;
+  font-size:clamp(26px, 3vw, 34px);
+  color:var(--burgundy);
+  letter-spacing:.02em;
 }
 
 .section{
@@ -943,7 +951,7 @@ body.reveal .envelope{
     <div class="subtitle">moonlit botanical romance · enchanted evening</div>
 
     <div class="lead">
-      <p><em>Легенда гласит...</em></p>
+      <p class="salutation" id="salutation">Дорогой гость,</p>
       <p>Иногда две дороги встречаются в одной точке — и с этого момента уже хочется идти рядом.</p>
       <p>Мы будем очень рады разделить этот день с самыми дорогими нам людьми.</p>
     </div>
@@ -1057,9 +1065,6 @@ body.reveal .envelope{
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Ответ на приглашение">
 
-          <label for="name">Имя</label>
-          <input id="name" type="text" name="name" placeholder="Ваше имя" required>
-
           <label for="attendance">Присутствие</label>
           <select id="attendance" name="attendance" required>
             <option value="Буду">Буду</option>
@@ -1126,7 +1131,7 @@ body.reveal .envelope{
     </div>
 
     <div class="section" style="margin-bottom:8px">
-      <p>Пожалуйста, подтвердите присутствие до <b>1 июня</b> 💌</p>
+      <p>Пожалуйста, подтвердите присутствие до <b>1 июня</b></p>
       <div class="golden-line"></div>
     </div>
   </div>
@@ -1257,6 +1262,19 @@ function prevPage(event) {
   }
 }
 
+function initGuestName() {
+  const params = new URLSearchParams(window.location.search);
+  const rawName = (params.get('name') || '').trim();
+  const salutation = document.getElementById('salutation');
+
+  if (rawName) {
+    salutation.textContent = `${rawName},`;
+    document.title = `Приглашение — ${rawName}`;
+  } else {
+    salutation.textContent = 'Дорогой гость,';
+  }
+}
+
 document.addEventListener('keydown', (e) => {
   const envelopeEl = document.getElementById('envelope');
   if ((e.key === 'Enter' || e.key === ' ') && document.activeElement === envelopeEl) {
@@ -1269,6 +1287,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') prevPage();
 });
 
+initGuestName();
 spawnParticles();
 setBookState();
 </script>
