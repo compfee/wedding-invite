@@ -31,7 +31,7 @@
       --silver:      #C0C0C0;
       --deep-teal:   #235b63;
       --bg:          #f0ece3;
-      --text:        #2c3e3a;
+      --text:        #537987;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -840,6 +840,26 @@
   animation-duration: 13s;
   animation-delay: 6.5s;
 }
+
+/* Цвет текста в полях формы */
+.input, 
+.select-wrap .custom-select, 
+.textarea,
+.select-option {
+  color: #537987;
+}
+
+/* Цвет текста при вводе (для input) */
+.input::placeholder,
+.textarea::placeholder {
+  color: #537987;
+  opacity: 0.7;
+}
+
+/* Цвет текста в select (выбранный вариант) */
+.selected-text {
+  color: #537987;
+}
   </style>
 </head>
 <body>
@@ -1167,3 +1187,4 @@ window.addEventListener('scroll', () => {
 </body>
 <div class="bubbles-bg" id="bubbles-bg"></div>
 </html>
+
