@@ -862,6 +862,7 @@ border-radius: 0;
 /* Цвет текста в select (выбранный вариант) */
 .selected-text {
   color: #537987;
+opacity: 0.7;
 }
 
 .text-justify { 
@@ -869,6 +870,24 @@ border-radius: 0;
   line-height: 1.75; 
   font-weight: 400;
   text-align: justify;
+}
+
+/* ---- единый стиль для анкеты ---- */
+.form .label,
+.form .checkbox-wrap label,
+.form .input,
+.form .textarea,
+.form .selected-text,
+.form .select-option,
+.form .custom-select {
+  color: #537987; /* или ваш основной цвет текста */
+}
+
+/* Стиль для placeholder'ов */
+.form .input::placeholder,
+.form .textarea::placeholder {
+  color: #537987;
+  opacity: 0.6;
 }
   </style>
 </head>
