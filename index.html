@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru">
 <head>
-<meta name="color-scheme" content="light only">
+<meta name="color-scheme" content="light">
 <meta name="theme-color" content="#f0ece3">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -12,36 +12,17 @@
   
   <link href="" rel="stylesheet" />
   <style>
-/* Принудительно светлая тема для всех приложений */
-@media (prefers-color-scheme: dark) {
-  html, body {
-    background: #f0ece3 !important;
-    color: #537987 !important;
-  }
+  :root {
+    color-scheme: light;
+}
   
-  /* Переопределяем все темные стили */
-  * {
-    color-scheme: light !important;
-  }
-}
-
-/* Для Telegram WebView */
-html[data-theme="dark"],
-body[data-theme="dark"] {
-  background: #f0ece3 !important;
-  color: #537987 !important;
-}
-:root {
-  color-scheme: light !important;
-}
-
-html {
-  color-scheme: light !important;
+  html {
+    background: #f0ece3 !important;
 }
 
 body {
-  background: #f0ece3 !important;
-  color: #537987 !important;
+    background: #f0ece3 !important;
+    color: #537987 !important;
 }
 
     /* Fonts */
