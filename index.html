@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<meta name="color-scheme" content="light">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Тата и Паша — Wedding Invitation</title>
@@ -67,7 +68,7 @@
     .loader-wave { width: 140px; height: 70px; }
     .loader-title {
       font-family: var(--font-loader), cursive;
-      font-size: 54px; color: var(--deep-teal); margin-top: 20px;
+      font-size: 38px; color: var(--deep-teal); margin-top: 20px;
     }
     .loader-sub { font-size: 22px; margin-top: 6px; color: var(--sea-smoke); }
     .enter-btn {
@@ -333,6 +334,7 @@
     .section-title {
       font-family: var(--font-script), cursive; font-size: 52px;
       line-height: 1; color: var(--deep-teal); margin-bottom: 18px;
+text-align: center; 
     }
     .text { font-size: 27px; line-height: 1.75; font-weight: 400; }
 
@@ -372,19 +374,20 @@
     }
     .day-name { font-weight: 700; color: var(--deep-teal); }
     .heart-day {
-      position: relative; width: 30px; height: 30px;
+      position: relative; width: 25px; height: 25px;
       margin: auto; display: flex; align-items: center; justify-content: center;
       transform: rotate(-45deg);
       background: var(--coral);
       box-shadow: 0 12px 24px rgba(224,122,95,0.28);
       animation: pulse 2.4s ease-in-out infinite;
+border-radius: 0;
     }
     .heart-day::before, .heart-day::after {
       content: ''; position: absolute;
-      width: 30px; height: 30px; background: var(--coral); border-radius: 50%;
+      width: 25px; height: 25px; background: var(--coral); border-radius: 60%;
     }
-    .heart-day::before { top: -17px; left: 0; }
-    .heart-day::after { left: 17px; top: 0; }
+    .heart-day::before { top: -12px; left: 0; }
+    .heart-day::after { left: 12px; top: 0; }
     .heart-day span {
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%,-50%) rotate(45deg);
@@ -860,6 +863,13 @@
 .selected-text {
   color: #537987;
 }
+
+.text-justify { 
+  font-size: 22px; 
+  line-height: 1.75; 
+  font-weight: 400;
+  text-align: justify;
+}
   </style>
 </head>
 <body>
@@ -936,9 +946,9 @@
 
   <section class="section reveal">
     <h2 class="section-title">Дорогие родные и близкие!</h2>
-    <p class="text">
+    <p class="text-justify">
       Совсем скоро состоится один из самых важных дней в нашей жизни - наша свадьба
-      <br /><br />
+      <br />
       Мы будем счастливы провести этот тёплый день вместе с вами
     </p>
     <img class="section-doodle" src="stars2.png" alt="" />
@@ -1002,7 +1012,7 @@
 
 <section class="section reveal">
     <h2 class="section-title">Дресс-код</h2>
-    <p class="text">Мы будем рады, если вы поддержите тёплую палитру нашего праздника:</p>
+    <p class="text-justify">Мы будем рады, если вы поддержите тёплую палитру нашего праздника:</p>
     <div class="palette">
       <div class="palette-item">
         <a class="color" style="background:#DAA2A5;" href="https://www.pinterest.com/search/pins/?q=blush+pink+sand+wedding+outfit" target="_blank"></a>
