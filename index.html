@@ -11,19 +11,65 @@
   
   
   <link href="" rel="stylesheet" />
-  <style>
-  :root {
-    color-scheme: light;
-}
+   <style>
   
-  html {
-    background: #f0ece3 !important;
-}
-
-body {
+  /* ============================================================
+     ⚡ ФИКС ДЛЯ TELEGRAM — принудительно светлый фон
+     ============================================================ */
+  
+  /* 1. Запрещаем инверсию на всех уровнях */
+  html,
+  body,
+  * {
+    filter: invert(0) !important;
+    -webkit-filter: invert(0) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  /* 2. Принудительно светлые цвета */
+  :root {
+    color-scheme: light !important;
+  }
+  
+  html,
+  body {
     background: #f0ece3 !important;
     color: #537987 !important;
-}
+  }
+  
+  /* 3. Все фоны остаются светлыми */
+  .loader,
+  .canvas,
+  .section,
+  .polaroid,
+  .calendar-wrap,
+  .location,
+  .vinyl-player,
+  .bg-doodle,
+  .bubbles-bg,
+  .tape-divider,
+  .select-options,
+  .custom-select,
+  .input,
+  .textarea {
+    filter: invert(0) !important;
+    -webkit-filter: invert(0) !important;
+  }
+  
+  /* 4. Все картинки остаются без инверсии */
+  img,
+  svg,
+  video,
+  canvas {
+    filter: invert(0) !important;
+    -webkit-filter: invert(0) !important;
+  }
+  
+  /* 5. Блоки с прозрачностью — сохраняем светлыми */
+  .tape-divider {
+    background: rgba(255,255,255,0.55) !important;
+  }
 
     /* Fonts */
 @font-face{font-family:"font1";src:url("fonts/font1.otf") format("opentype");}
