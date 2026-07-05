@@ -1098,54 +1098,61 @@ opacity: 0.7;
     
   </section>
 
+<section class="section reveal">
+  <h2 class="section-title">Анкета</h2>
 
-  <section class="section reveal">
-    <h2 class="section-title">Анкета</h2>
-    <form class="form" action="https://formspree.io/f/xbdvzbgz" method="POST">
-      <input type="hidden" name="_subject" value="Новая анкета с свадебного сайта" />
 
-      <label class="label">Ваше имя</label>
-      <input class="input" type="text" name="Имя" placeholder="Введите имя" required />
+  <form class="form" action="https://app.proforms.top/f/pr7e1fc445" method="POST">
 
-      <label class="label">Сможете присутствовать?</label>
-      <div class="select-wrap">
-        <div class="custom-select">
-          <span class="selected-text">Выберите ответ</span>
-          <div class="select-arrow">⌄</div>
-        </div>
-        <div class="select-options">
-          <div class="select-option" data-value="Буду">Буду</div>
-          <div class="select-option" data-value="Увы, не смогу">Увы, не смогу</div>
-        </div>
-        <input type="hidden" name="Присутствие" class="select-hidden" value="" />
+    <input type="hidden" name="_subject" value="Новая анкета с свадебного сайта" />
+
+    <label class="label">Ваше имя</label>
+    <input class="input" type="text" name="Имя" placeholder="Введите имя" required />
+
+    <label class="label">Сможете присутствовать?</label>
+    <div class="select-wrap">
+      <div class="custom-select">
+        <span class="selected-text">Выберите ответ</span>
+        <div class="select-arrow">⌄</div>
       </div>
-
-      <label class="label">Предпочтения по алкоголю</label>
-      <textarea class="textarea" name="Предпочтения по алкоголю" placeholder="Напишите здесь"></textarea>
-
-      <label class="label">Рыба или мясо?</label>
-      <div class="select-wrap">
-        <div class="custom-select">
-          <span class="selected-text">Выберите блюдо</span>
-          <div class="select-arrow">⌄</div>
-        </div>
-        <div class="select-options">
-          <div class="select-option" data-value="Рыба">Рыба</div>
-          <div class="select-option" data-value="Мясо">Мясо</div>
-          <div class="select-option" data-value="Всё равно">Всё равно</div>
-        </div>
-        <input type="hidden" name="Рыба_или_мясо" class="select-hidden" value="" />
+      <div class="select-options">
+        <div class="select-option" data-value="Буду">Буду</div>
+        <div class="select-option" data-value="Увы, не смогу">Увы, не смогу</div>
       </div>
+      <input type="hidden" name="Присутствие" class="select-hidden" value="" />
+    </div>
 
-      <label class="label">Аллергии или пожелания по еде</label>
-      <textarea class="textarea" name="Аллергии_пожелания" placeholder="Напишите здесь"></textarea>
+    <label class="label">Предпочтения по алкоголю</label>
+    <textarea class="textarea" name="Предпочтения по алкоголю" placeholder="Напишите здесь"></textarea>
 
-      <label class="label">Особые пожелания</label>
-      <textarea class="textarea" name="Особые_пожелания" placeholder="Что-то важное, что мы должны знать?"></textarea>
+    <label class="label">Рыба или мясо?</label>
+    <div class="select-wrap">
+      <div class="custom-select">
+        <span class="selected-text">Выберите блюдо</span>
+        <div class="select-arrow">⌄</div>
+      </div>
+      <div class="select-options">
+        <div class="select-option" data-value="Рыба">Рыба</div>
+        <div class="select-option" data-value="Мясо">Мясо</div>
+        <div class="select-option" data-value="Всё равно">Всё равно</div>
+      </div>
+      <input type="hidden" name="Рыба_или_мясо" class="select-hidden" value="" />
+    </div>
 
-      <button class="submit" type="submit">отправить</button>
-    </form>
-  </section>
+    <label class="label">Аллергии или пожелания по еде</label>
+    <textarea class="textarea" name="Аллергии_пожелания" placeholder="Напишите здесь"></textarea>
+
+    <label class="label">Особые пожелания</label>
+    <textarea class="textarea" name="Особые_пожелания" placeholder="Что-то важное, что мы должны знать?"></textarea>
+
+    <div class="checkbox-wrap">
+      <input type="checkbox" name="Поймать_рыбку" value="Да" id="fish" />
+      <label for="fish">Хочу выловить рыбку из пруда</label>
+    </div>
+
+    <button class="submit" type="submit">отправить</button>
+  </form>
+</section>
   
   <footer class="footer reveal">
     <div class="footer-title">До встречи!</div>
