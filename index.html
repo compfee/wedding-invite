@@ -283,10 +283,70 @@ body {
 
     /* ---- canvas ---- */
     .canvas {
-      max-width: 430px; margin: auto;
-      padding: 40px 22px 120px;
-      position: relative; z-index: 5;
-    }
+  max-width: 430px;
+  margin: auto;
+  padding: 40px 22px 120px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Для экранов шире 500px */
+@media (min-width: 500px) {
+  .canvas {
+    max-width: 600px;
+    padding: 60px 40px 140px;
+  }
+  .main-title {
+    font-size: 90px;
+  }
+  .section-title {
+    font-size: 60px;
+  }
+  .text-justify {
+    font-size: 26px;
+  }
+  .calendar {
+    font-size: 22px;
+  }
+  .location h3 {
+    font-size: 44px;
+  }
+  .location p {
+    font-size: 28px;
+  }
+  .timeline .time {
+    font-size: 40px;
+  }
+  .timeline .event {
+    font-size: 28px;
+  }
+  .footer-title {
+    font-size: 80px;
+  }
+  .polaroid {
+    padding: 24px 24px 36px;
+  }
+  .photo-caption {
+    font-size: 38px;
+  }
+  .tape-divider {
+    font-size: 34px;
+  }
+}
+
+/* Для очень больших экранов (планшеты, большие телефоны) */
+@media (min-width: 768px) {
+  .canvas {
+    max-width: 500px;
+    padding: 80px 60px 160px;
+  }
+  .main-title {
+    font-size: 110px;
+  }
+  .section-title {
+    font-size: 72px;
+  }
+}
 
     /* ---- tape ---- */
     .tape {
@@ -502,12 +562,13 @@ border-radius: 0;
     }
     .color {
       width: 58px; height: 58px; border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.8);
+      border: 4px solid rgba(255,255,255,1);
       box-shadow: 0 12px 24px rgba(0,0,0,0.08);
       cursor: pointer; transition: 0.35s ease;
       position: relative; overflow: hidden;
       text-decoration: none;
     }
+	
     .color:hover { transform: translateY(-4px) scale(1.06); }
     .color::after {
       content: '\2661'; position: absolute; inset: 0;
@@ -693,12 +754,30 @@ border-radius: 0;
     rgba(83, 121, 135, 0.05)
   );
   border: 2px solid rgba(168, 200, 214, 0.5);
-  box-shadow: 
-    inset 0 -5px 15px rgba(168, 200, 214, 0.1),
-    0 0 20px rgba(168, 200, 214, 0.05);
+  box-shadow: inset 0 -5px 15px rgba(168, 200, 214, 0.1), 0 0 20px rgba(168, 200, 214, 0.05);
   animation: floatUp linear infinite;
   opacity: 0;
-  backdrop-filter: blur(1px);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Упрощаем keyframes – только вертикальное смещение */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
 }
 
 /* Блик на пузырьке для реалистичности */
@@ -928,6 +1007,51 @@ body.no-scroll {
   .section-title { font-size: 32px; }
   .text-justify { font-size: 18px; }
 }
+
+/* Принудительная светлая тема для Samsung Internet и других браузеров */
+@media (prefers-color-scheme: dark) {
+  html, body, .loader, .canvas, .section, .polaroid, .calendar-wrap,
+  .location, .tape-divider, .footer, .form, .input, .textarea,
+  .custom-select, .select-options, .select-option, .vinyl-player,
+  .player-text, .bg-doodle, .bubbles-bg {
+    background-color: #f0ece3 !important;
+    color: #537987 !important;
+    border-color: #537987 !important;
+  }
+  /* Переопределяем все фоновые элементы, где использовались белые/светлые тона */
+  .polaroid {
+    background: #f8f3eb !important;
+  }
+  .tape-divider {
+    background: rgba(255,255,255,0.55) !important;
+    backdrop-filter: blur(6px);
+  }
+  .player-text {
+    background: rgba(255,255,255,0.85) !important;
+  }
+  .input, .textarea, .custom-select {
+    background: rgba(255,255,255,0.75) !important;
+  }
+  .select-options {
+    background: rgba(255,255,255,0.92) !important;
+  }
+  .location {
+    background: linear-gradient(145deg, var(--sea-smoke), var(--deep-teal)) !important;
+    color: white !important;
+  }
+  .location h3, .location p, .map-btn {
+    color: white !important;
+  }
+  .map-btn {
+    background: #A8C8D6 !important;
+    color: #3F6E79 !important;
+  }
+  .vinyl {
+    /* сохраняем оригинальный вид винила */
+    background: radial-gradient(circle at 30% 30%, #2a2a2a, #1a1a1a, #0d0d0d, #1a1a1a, #2a2a2a) !important;
+  }
+  /* Добавьте другие элементы по необходимости */
+}
   </style>
 </head>
 <body>
@@ -1043,7 +1167,7 @@ body.no-scroll {
   </div>
 </section>
 
-  <div class="tape-divider">i'm glad I spent it with you</div>
+  <div class="tape-divider reveal">i'm glad I spent it with you</div>
 
   <section class="section reveal">
     <h2 class="section-title">Расписание дня</h2>
@@ -1201,11 +1325,19 @@ document.body.classList.add('no-scroll');
 
 function enterSite() {
   loader.classList.add('hidden');
-  document.body.classList.remove('no-scroll'); // разрешаем прокрутку
-  window.scrollTo(0, 0); // сбрасываем прокрутку в самое начало
+  document.body.classList.remove('no-scroll');
+  window.scrollTo(0, 0);
   music.volume = 0.3;
   music.play();
   vinyl.classList.remove('paused');
+
+  // Сброс и повторная активация анимации
+  setTimeout(() => {
+    // Удаляем класс active у всех секций
+    document.querySelectorAll('.reveal').forEach(el => el.classList.remove('active'));
+    // Запускаем проверку заново
+    revealOnScroll();
+  }, 100);
 }
 
   function toggleMusic() {
