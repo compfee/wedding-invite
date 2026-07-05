@@ -901,6 +901,10 @@ opacity: 0.7;
   color: #537987;
   opacity: 0.6;
 }
+
+body.no-scroll {
+  overflow: hidden;
+}
   </style>
 </head>
 <body>
@@ -1162,13 +1166,17 @@ opacity: 0.7;
 </div>
 
 <script>
+// Блокируем прокрутку, пока лоадер активен
+document.body.classList.add('no-scroll');
   const loader = document.getElementById('loader');
   const music = document.getElementById('music');
   const vinyl = document.getElementById('vinyl');
 
 function enterSite() {
   loader.classList.add('hidden');
-  music.volume = 0.3; // Громкость 30% (от 0 до 1)
+  document.body.classList.remove('no-scroll'); // разрешаем прокрутку
+  window.scrollTo(0, 0); // сбрасываем прокрутку в самое начало
+  music.volume = 0.3;
   music.play();
   vinyl.classList.remove('paused');
 }
@@ -1241,7 +1249,7 @@ window.addEventListener('scroll', () => {
 </script>
 
 </body>
-<div class="bubbles-bg" id="bubbles-bg"></div>
+
 </html>
 
 
