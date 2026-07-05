@@ -2,8 +2,10 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
 <meta name="color-scheme" content="only light">
+<meta name="color-scheme" content="light only">
+<meta name="darkreader-lock" content="true">
 <meta name="theme-color" content="#f0ece3">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +14,14 @@
   
   <link href="" rel="stylesheet" />
   <style>
+  html {
+  color-scheme: light !important;
+}
+
+body {
+  background: #f0ece3 !important;
+  color: #537987 !important;
+}
 :root {
     color-scheme: light;
 }
@@ -21,6 +31,8 @@ body {
     background: #f0ece3;
     color: #537987;
 }
+
+
     /* Fonts */
 @font-face{font-family:"font1";src:url("fonts/font1.otf") format("opentype");}
 @font-face{font-family:"font2";src:url("fonts/font6.ttf") format("opentype");}
@@ -607,6 +619,11 @@ border-radius: 0;
   bottom: 20px;
   right: 20px;
 }
+.bubble-bg {
+  will-change: transform;           /* подсказка браузеру для оптимизации */
+  transform: translateZ(0);         /* включает аппаратное ускорение */
+  backface-visibility: hidden;      /* убирает мерцание */
+}
 
 @font-face {
   font-family: 'Veles-Regular_0_9_2';    /* Название, которое вы будете использовать */
@@ -904,6 +921,12 @@ opacity: 0.7;
 
 body.no-scroll {
   overflow: hidden;
+}
+@media (max-width: 380px) {
+  .canvas { padding: 20px 12px; }
+  .main-title { font-size: 44px; }
+  .section-title { font-size: 32px; }
+  .text-justify { font-size: 18px; }
 }
   </style>
 </head>
@@ -1255,5 +1278,6 @@ window.addEventListener('scroll', () => {
 </body>
 
 </html>
+
 
 
